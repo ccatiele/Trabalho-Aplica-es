@@ -1,0 +1,17 @@
+OTA  TABLE IF EXISTS tbcomando;
+GOTA  TABLE IF EXISTS tbbotresultado;
+	  criar  tabela  tbcomando (
+id_comando int  não nulo auto_increment,
+nm_comando varchar ( 255 ) não nulo ,
+chave primária (id_comando),
+CONSTRAINT uk_tbcomando_nm_comando UNIQUE (nm_comando));
+
+
+	  CRIAR  TABELA " tbbotresultado '(
+id_resultado int  NOT NULL AUTO_INCREMENT,
+	id_comando INT  NOT NULL ,
+first_name varchar ( 255 ) NOT NULL ,
+resultado varchar ( 255 ) PADRÃO NULL , update_id varchar ( 255 ) NOT NULL ,
+PRIMARY KEY (id_resposta),
+CONSTRAINT uk_tbresultado_update_id UNIQUE (update_id),
+FOREIGN KEY (id_comando) referências tbcomando (id_comando));
