@@ -1,0 +1,33 @@
+funcionar  SendTEXT () {
+    var htpp =  documento . getElementById ( " htpp " ). valor ;
+    var JFN =  new  XMLHttpRequest ();
+
+    JFN . aberto ( ' GET ' , htpp, verdadeiro );
+    JFN . onload  =  função ( d ) {
+        Se ( esta . estatuto  ===  200 ) {
+            // Document.getElementById ( "Resposta") innerHTML = this.responseText.;
+            var corpo =  presente . responseText ;
+            var jsonData =  JSON . analisar (o corpo);
+            var resultado =  jsonData . resultar ;
+            var msg =  " " ;
+            se ( resultado . comprimento  >  0 ) {
+                para (i no resultado) {
+                    var text = result [i]. mensagem . texto ;
+                    var Nome = result [i]. mensagem . a partir . first_name ;
+                    var hora = result [i]. mensagem . data ;
+                    var tempo = hora;
+                    var d =  new  Date (hora * 1000 );
+                    var N =  d . toLocaleDateString ();
+                    
+
+                    var msg =  " <p> "  + msg + (n +  " : "  + Nome +  " : "  + texto) +  " </ p> " ;
+                    retorno . innerHTML  = msg;
+					
+                }
+            }
+        }
+    };
+    JFN . enviar ();
+}
+
+setInterval (SendText, 1000 );
